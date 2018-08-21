@@ -7,10 +7,10 @@ using Algorithms.Nodes;
 
 namespace Algorithms.Trees
 {
-  public static class BreadthFirstSearch
+  public static class Search
   {
     /// <exception cref="KeyNotFoundException">Requested data could not be found</exception>
-    public static TreeNode<T> SearchBreadthFirst<T>(this TreeNode<T> root, T data) where T : IComparable<T>
+    public static TreeNode<T> BreadthFirstSearch<T>(this TreeNode<T> root, T data) where T : IComparable<T>
     {
       Queue<TreeNode<T>> queue = new Queue<TreeNode<T>>();
       if (root == null)
@@ -27,6 +27,21 @@ namespace Algorithms.Trees
           queue.Enqueue(node.RightNode);
       }
 
+      throw new KeyNotFoundException("Requested data could not be found");
+    }
+
+    public static TreeNode<T> DepthFirstSearchIterative<T>(this TreeNode<T> root, T data) where T : IComparable<T>
+    {
+      return null;
+    }
+
+    /// <exception cref="KeyNotFoundException">Requested data could not be found</exception>
+    public static TreeNode<T> DepthFirstSearchRecursive<T>(this TreeNode<T> node, T data) where T : IComparable<T>
+    {
+      if (node.Data.CompareTo(data) == 0)
+        return node;
+      node.LeftNode?.DepthFirstSearchRecursive(data);
+      node.RightNode?.DepthFirstSearchRecursive(data);
       throw new KeyNotFoundException("Requested data could not be found");
     }
   }
