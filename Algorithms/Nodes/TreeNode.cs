@@ -54,5 +54,35 @@ namespace Algorithms.Nodes
       }
     }
 
+    public void InOrderTraversal(TreeNode<T> node)
+    {
+      if (node != null)
+      {
+        InOrderTraversal(node.LeftNode);
+        // Set current node as visited;
+        InOrderTraversal(node.RightNode);
+      }
+    }
+
+    public void PreOrderTraversal(TreeNode<T> node)
+    {
+      if (node != null)
+      {
+        // Set current node as visited
+        PreOrderTraversal(node.LeftNode);
+        PreOrderTraversal(node.RightNode);
+      }
+    }
+
+    public void PostOrderTraversal(TreeNode<T> node)
+    {
+      if (node != null)
+      {
+        PostOrderTraversal(node.LeftNode);
+        PostOrderTraversal(node.RightNode);
+        // Set current node as visited
+      }
+    }
+
   }
 }

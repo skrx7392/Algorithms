@@ -44,9 +44,8 @@
     <Compile Include="Nodes\LinkedListNode.cs" />
     <Compile Include="Nodes\NodeBase.cs" />
     <Compile Include="Nodes\TreeNode.cs" />
-    <Compile Include="Trees\BFS_Tree.cs" />
+    <Compile Include="Trees\BreadthFirstSearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Trees\Traversals\InOrderTraversal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
