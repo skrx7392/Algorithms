@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Algorithms
+namespace Algorithms.Trees.Traversals
 {
-    public class Class1
-    {
-    }
+  public class InOrderTraversal
+  {
+
+  }
 }
