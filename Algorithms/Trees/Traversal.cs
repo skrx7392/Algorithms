@@ -14,7 +14,7 @@ namespace Algorithms.Trees
       if (node != null)
       {
         InOrderTraversal(node.LeftNode);
-        // Set current node as visited;
+        node.Visited = true;
         InOrderTraversal(node.RightNode);
       }
     }
@@ -23,7 +23,7 @@ namespace Algorithms.Trees
     {
       if (node != null)
       {
-        // Set current node as visited
+        node.Visited = true;
         PreOrderTraversal(node.LeftNode);
         PreOrderTraversal(node.RightNode);
       }
@@ -35,7 +35,7 @@ namespace Algorithms.Trees
       {
         PostOrderTraversal(node.LeftNode);
         PostOrderTraversal(node.RightNode);
-        // Set current node as visited
+        node.Visited = true;
       }
     }
   }

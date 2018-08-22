@@ -11,6 +11,7 @@ namespace Algorithms.Nodes
     public TreeNode<T> LeftNode { get; set; }
     public TreeNode<T> RightNode { get; set; }
     public TreeNode<T> ParentNode { get; set; }
+    public bool Visited { get; set; }
 
     public TreeNode(T data)
     {

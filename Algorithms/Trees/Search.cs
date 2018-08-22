@@ -27,7 +27,6 @@ namespace Algorithms.Trees
         if (node.RightNode != null)
           queue.Enqueue(node.RightNode);
       }
-
       return null;
     }
 
@@ -45,7 +44,6 @@ namespace Algorithms.Trees
         if (currentNode.LeftNode != null)
           stack.Push(currentNode.LeftNode);
       }
-
       return null;
     }
 
