@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using Algorithms.Nodes;
@@ -27,11 +28,24 @@ namespace Algorithms.Trees
           queue.Enqueue(node.RightNode);
       }
 
-      throw new KeyNotFoundException("Requested data could not be found");
+      return null;
     }
 
     public static TreeNode<T> DepthFirstSearchIterative<T>(this TreeNode<T> root, T data) where T : IComparable<T>
     {
+      var stack = new Stack<TreeNode<T>>();
+      stack.Push(root);
+      while (stack.Peek() != null)
+      {
+        var currentNode = stack.Pop();
+        if (currentNode.Data.CompareTo(data) == 0)
+          return currentNode;
+        if (currentNode.RightNode != null)
+          stack.Push(currentNode.RightNode);
+        if (currentNode.LeftNode != null)
+          stack.Push(currentNode.LeftNode);
+      }
+
       return null;
     }
 
@@ -40,9 +54,10 @@ namespace Algorithms.Trees
     {
       if (node.Data.CompareTo(data) == 0)
         return node;
-      node.LeftNode?.DepthFirstSearchRecursive(data);
-      node.RightNode?.DepthFirstSearchRecursive(data);
-      throw new KeyNotFoundException("Requested data could not be found");
+      var foundNode = node.LeftNode?.DepthFirstSearchRecursive(data);
+      if (foundNode != null)
+        return foundNode;
+      return node.RightNode?.DepthFirstSearchRecursive(data);
     }
   }
 }
