@@ -13,16 +13,16 @@ namespace Algorithms.Arrays
     public static void MergeSort(this IEnumerable<int> list)
     {
       int[] helper = new int[list.Count()];
-      MergeSort(list.ToArray(), helper, 0, list.Count()-1);
+      MergeSort(list.ToArray(), helper, 0, list.Count() - 1);
     }
 
     private static void MergeSort(int[] array, int[] helper, int low, int high)
     {
-      if (low<high)
+      if (low < high)
       {
         var middle = (low + high) / 2;
-        MergeSort(array, helper,  low, middle);
-        MergeSort(array, helper, middle+1, high);
+        MergeSort(array, helper, low, middle);
+        MergeSort(array, helper, middle + 1, high);
         Merge(array, helper, low, middle, high);
       }
     }
@@ -60,6 +60,46 @@ namespace Algorithms.Arrays
         array[current + i] = helper[helperLeft + i];
       }
     }
+    #endregion
+
+    #region Quick Sort
+
+    public static void QuickSort(this IEnumerable<int> list)
+    {
+      QuickSort(list.ToArray(), 0, list.Count()-1);
+    }
+
+    private static void QuickSort(int[] array, int left, int right)
+    {
+      int index = Partition(array, left, right);
+      if(left<index-1)
+        QuickSort(array, left, index-1);
+      if(index<right)
+        QuickSort(array, index, right);
+    }
+
+    private static int Partition(int[] array, int left, int right)
+    {
+      var pivot = array[(left + right) / 2];
+      while (left <= right)
+      {
+        while (array[left] < pivot)
+          left++;
+        while (array[right] > pivot)
+          right--;
+        if (left <= right)
+        {
+          var temp = array[left];
+          array[left] = array[right];
+          array[right] = temp;
+          left++;
+          right--;
+        }
+      }
+
+      return left;
+    }
+
     #endregion
   }
 }
