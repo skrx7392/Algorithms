@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrays\Sort.cs" />
     <Compile Include="Graphs\Insert.cs" />
     <Compile Include="Graphs\Search.cs" />
     <Compile Include="Nodes\GraphNode.cs" />
